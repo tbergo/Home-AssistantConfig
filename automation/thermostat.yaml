@@ -1,0 +1,8 @@
+  - alias: "Temperature Thermostat"
+    trigger:
+      platform: state
+      entity_id: input_boolean.thermostat_switch
+    action:
+      - service: climate.thermostat.livingroom.target_temp
+        data_template:
+          temperature: '{{ states.input_number.slider_lo_temp.state }}'

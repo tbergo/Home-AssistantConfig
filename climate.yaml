@@ -1,0 +1,11 @@
+  - platform: generic_thermostat
+    name: LivingRoom
+    heater: input_boolean.vacation_mode
+    target_sensor: sensor.netatmo_indoor_temperature
+    min_temp: 18
+    max_temp: 27
+    target_temp:
+    cold_tolerance: 0.5
+    hot_tolerance: 0.5
+    min_cycle_duration:
+      seconds: 60
