@@ -1,8 +1,21 @@
-  - alias: "Temperature Thermostat"
+  - alias: "Temperature Thermostat On"
     trigger:
       platform: state
       entity_id: input_boolean.thermostat_switch
+      from: 'off'
+      to: 'on'
     action:
       - service: climate.thermostat.livingroom.target_temp
         data_template:
-          temperature: '{{ states.input_number.box_target_temp.state }}'
+          temperature: '{{ states.input_number.box_target_temp.state  | float + 2 }}'
+
+  - alias: "Temperature Thermostat Off"
+    trigger:
+      platform: state
+      entity_id: input_boolean.thermostat_switch
+      from: 'on'
+      to: 'off'
+    action:
+      - service: climate.thermostat.livingroom.target_temp
+        data_template:
+          temperature: '{{ states.input_number.box_target_temp.state  | float - 2 }}'
