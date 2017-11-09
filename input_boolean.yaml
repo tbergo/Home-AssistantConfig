@@ -1,2 +1,5 @@
   vacation_mode:
     initial: off
+
+  thermostat_switch:
+    initial: off
