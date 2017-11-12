@@ -1,7 +1,7 @@
   - alias: "Temperature Thermostat On"
     trigger:
       platform: state
-      entity_id: input_boolean.thermostat_switch
+      entity_id: switch.thermostat_switch
       from: 'off'
       to: 'on'
     action:
@@ -13,7 +13,7 @@
   - alias: "Temperature Thermostat Off"
     trigger:
       platform: state
-      entity_id: input_boolean.thermostat_switch
+      entity_id: switch.thermostat_switch
       from: 'on'
       to: 'off'
     action:

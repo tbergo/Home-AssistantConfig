@@ -1,11 +1,12 @@
   - platform: generic_thermostat
     name: LivingRoom
-    heater: input_boolean.thermostat_switch
+    #heater: input_boolean.thermostat_switch
+    heater: switch.thermostat_switch
     target_sensor: sensor.netatmo_indoor_temperature
     min_temp: 18
-    max_temp: 27
-    #target_temp: input_number.slider_hi_temp
-    target: '{{ states.input_number.box_target_temp.state }}'
+    max_temp: 30
+    #target: '{{ states.input_number.box_target_temp.state }}'
+    target_temp: 27
     cold_tolerance: 0.5
     hot_tolerance: 0.5
     min_cycle_duration:
