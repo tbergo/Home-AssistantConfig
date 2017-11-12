@@ -5,8 +5,9 @@
       from: 'off'
       to: 'on'
     action:
-      - service: climate.thermostat.livingroom.target_temp
+      - service: climate.set_temperature
         data_template:
+          entity_id: climate.thermofloor_as_heatit_thermostat_tf_021_heating
           temperature: '{{ states.input_number.box_target_temp.state  | float + 2 }}'
 
   - alias: "Temperature Thermostat Off"
@@ -16,6 +17,7 @@
       from: 'on'
       to: 'off'
     action:
-      - service: climate.thermostat.livingroom.target_temp
+      - service: climate.set_temperature
         data_template:
+          entity_id: climate.thermofloor_as_heatit_thermostat_tf_021_heating
           temperature: '{{ states.input_number.box_target_temp.state  | float - 2 }}'

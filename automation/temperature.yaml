@@ -23,9 +23,10 @@
       - service: climate.set_temperature
         data_template:
           temperature: '{{ states.input_number.slider_hi_temp.state }}'
-      - service: input_number.box_target_temp.set_temperature
+      - service: input_number.set_value
         data_template:
-          temperature: '{{ states.input_number.slider_hi_temp.state }}'
+          entity_id: input_number.box_target_temp 
+          value: '{{ states.input_number.slider_hi_temp.state }}'
 
   - alias: "Temperature Weekend High"
     trigger:
@@ -47,9 +48,10 @@
       - service: climate.set_temperature
         data_template:
           temperature: '{{ states.input_number.slider_hi_temp.state }}'
-      - service: input_number.box_target_temp.set_temperature
+      - service: input_number.set_value
         data_template:
-          temperature: '{{ states.input_number.slider_hi_temp.state }}'
+          entity_id: input_number.box_target_temp
+          value: '{{ states.input_number.slider_hi_temp.state }}'
 
   - alias: "Temperature Weekdays Low"
     trigger:
@@ -67,9 +69,10 @@
       - service: climate.set_temperature
         data_template:
           temperature: '{{ states.input_number.slider_lo_temp.state }}'
-      - service: input_number.box_target_temp.set_temperature
+      - service: input_number.set_temperature
         data_template:
-          temperature: '{{ states.input_number.slider_lo_temp.state }}'
+          entity_id: input_number.box_target_temp
+          value: '{{ states.input_number.slider_hi_temp.state }}'
 
   - alias: "Temperature Night"
     trigger:
@@ -79,6 +82,7 @@
       - service: climate.set_temperature
         data_template:
           temperature: '{{ states.input_number.slider_lo_temp.state }}'
-      - service: input_number.box_target_temp.set_temperature
+      - service: input_number.set_value
         data_template:
-          temperature: '{{ states.input_number.slider_lo_temp.state }}'
+          entity_id: input_number.box_target_temp
+          value: '{{ states.input_number.slider_hi_temp.state }}'

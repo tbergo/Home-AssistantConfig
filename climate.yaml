@@ -1,6 +1,6 @@
   - platform: generic_thermostat
     name: LivingRoom
-    heater: input_boolean.vacation_mode
+    heater: input_boolean.thermostat_switch
     target_sensor: sensor.netatmo_indoor_temperature
     min_temp: 18
     max_temp: 27
